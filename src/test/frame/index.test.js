@@ -4,8 +4,12 @@ import checkPropTypes from "check-prop-types";
 import Frame from "../../components/frame";
 
 describe("Frame component", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<Frame index={1} />);
+  });
+
   it("should display 2 columns in each frame", () => {
-    const wrapper = shallow(<Frame index={1} />);
     const columns = wrapper.find(".frame").childAt(1).find("span").length;
 
     expect(columns).toBe(2);
