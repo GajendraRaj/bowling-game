@@ -12,3 +12,29 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.scoreBoard {
+  margin: 10px;
+}
+
+.frame {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border: 1px solid #464646;
+  border-right: none;
+  margin: 0;
+}
+
+.frame:last-child {
+  border-right: 1px solid #464646;
+}
+
+.frame p {
+  padding: 2px 0;
+  margin: 0;
+  text-align: center;
+  background: grey;
+  color: white;
+  border-bottom: 1px solid black;
+}

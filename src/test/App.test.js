@@ -11,4 +11,8 @@ describe("App component", () => {
   it("should render title correctly", () => {
     expect(wrapper.find("header").text()).toEqual("Bowling Game");
   });
+
+  it("should display 10 frames in a table structure", () => {
+    expect(wrapper.find(".scoreBoard .frame").length).toBe(10);
+  });
 });
