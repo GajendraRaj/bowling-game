@@ -4,21 +4,19 @@ import Constants from "../constants";
 import "./App.css";
 
 const App = () => {
+  const getFrames = () => {
+    let frames = [];
+    for (let i = 0; i < 10; i++) {
+      frames.push(<Frame key={i} index={i + 1} />);
+    }
+
+    return frames;
+  };
+
   return (
     <div className="App">
       <header className="App-header">{Constants.APP_TITLE}</header>
-      <div className="scoreBoard">
-        <Frame index={1} />
-        <Frame index={2} />
-        <Frame index={3} />
-        <Frame index={4} />
-        <Frame index={5} />
-        <Frame index={6} />
-        <Frame index={7} />
-        <Frame index={8} />
-        <Frame index={9} />
-        <Frame index={10} />
-      </div>
+      <div className="scoreBoard">{getFrames()}</div>
     </div>
   );
 };
