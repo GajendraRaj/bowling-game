@@ -16,6 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">{Constants.APP_TITLE}</header>
+      <button>Start</button>
       <div className="scoreBoard">{getFrames()}</div>
     </div>
   );

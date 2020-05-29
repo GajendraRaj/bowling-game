@@ -16,4 +16,8 @@ describe("App component", () => {
   it("should display 10 frames in a table structure", () => {
     expect(wrapper.find(Frame).length).toBe(10);
   });
+
+  it("should render Start button", () => {
+    expect(wrapper.find("button").text()).toEqual("Start");
+  });
 });
