@@ -6,13 +6,21 @@ import Frame from "../../components/frame";
 describe("Frame component", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Frame index={1} />);
+    wrapper = shallow(<Frame index={1} roll1={1} roll2={5} />);
   });
 
   it("should display 2 columns in each frame", () => {
     const columns = wrapper.find(".frame").childAt(1).find("span").length;
 
     expect(columns).toBe(2);
+  });
+
+  it("should display props roll1 and roll2 value", () => {
+    const roll1 = wrapper.find(".frame span").at(0).text();
+    const roll2 = wrapper.find(".frame span").at(1).text();
+
+    expect(roll1).toEqual("1");
+    expect(roll2).toEqual("5");
   });
 
   it("should throw error message if there are no index prop", () => {

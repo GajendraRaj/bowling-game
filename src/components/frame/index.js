@@ -6,8 +6,8 @@ const Frame = (props) => {
     <div className="frame">
       <p>{`frame ${props.index}`}</p>
       <div className="pins">
-        <span>1</span>
-        <span>2</span>
+        <span>{props.roll1}</span>
+        <span>{props.roll2}</span>
       </div>
     </div>
   );
@@ -15,7 +15,8 @@ const Frame = (props) => {
 
 Frame.propTypes = {
   index: PropTypes.number.isRequired,
-  roll: PropTypes.number,
+  roll1: PropTypes.number,
+  roll2: PropTypes.number,
 };
 
 export default Frame;

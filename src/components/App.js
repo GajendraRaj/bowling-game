@@ -8,8 +8,15 @@ const App = () => {
 
   const getFrames = () => {
     let frames = [];
-    for (let i = 0; i < 10; i++) {
-      frames.push(<Frame key={i} index={i + 1} roll={scoreBoard.length} />);
+    for (let i = 0; i < 20; i = i + 2) {
+      frames.push(
+        <Frame
+          key={i}
+          index={i + 1}
+          roll1={scoreBoard[i]}
+          roll2={scoreBoard[i + 1]}
+        />
+      );
     }
 
     return frames;
@@ -18,7 +25,7 @@ const App = () => {
   const generateRollsScore = () => {
     let rollsScore = [];
     for (let i = 0; i < 20; i++) {
-      rollsScore.push(Math.random());
+      rollsScore.push(Math.round(Math.random() * 10));
     }
 
     setScoreBoard(rollsScore);

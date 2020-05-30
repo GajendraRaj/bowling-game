@@ -24,6 +24,9 @@ describe("App component", () => {
   it("should generate 20 random rolls on start button click", () => {
     const startButton = wrapper.find("button");
     startButton.simulate("click");
-    expect(wrapper.find(Frame).at(0).props().roll).toEqual(20);
+    for (let i = 0; i < 10; i++) {
+      expect(wrapper.find(Frame).at(i).props().roll1).toBeLessThanOrEqual(10);
+      expect(wrapper.find(Frame).at(i).props().roll2).toBeLessThanOrEqual(10);
+    }
   });
 });
