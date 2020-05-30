@@ -15,6 +15,7 @@ const Frame = (props) => {
 
 Frame.propTypes = {
   index: PropTypes.number.isRequired,
+  roll: PropTypes.number,
 };
 
 export default Frame;
