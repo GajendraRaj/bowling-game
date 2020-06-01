@@ -29,4 +29,16 @@ describe("App component", () => {
       expect(wrapper.find(Frame).at(i).props().roll2).toBeLessThanOrEqual(10);
     }
   });
+
+  it("should not exceed a total of 10 per frame", () => {
+    const startButton = wrapper.find("button");
+    startButton.simulate("click");
+    for (let i = 0; i < 10; i++) {
+      const roll1 = wrapper.find(Frame).at(i).props().roll1;
+      const roll2 = wrapper.find(Frame).at(i).props().roll2;
+      const totalPerFrameCount = roll1 + roll2;
+
+      expect(totalPerFrameCount).toBeLessThanOrEqual(10);
+    }
+  });
 });

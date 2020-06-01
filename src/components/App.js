@@ -24,8 +24,12 @@ const App = () => {
 
   const generateRollsScore = () => {
     let rollsScore = [];
-    for (let i = 0; i < 20; i++) {
-      rollsScore.push(Math.round(Math.random() * 10));
+    for (let i = 0; i < 10; i++) {
+      const roll1 = Math.round(Math.random() * 10);
+      const roll2 = Math.round(Math.random() * (10 - roll1));
+
+      rollsScore.push(roll1);
+      rollsScore.push(roll2);
     }
 
     setScoreBoard(rollsScore);
