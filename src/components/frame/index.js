@@ -17,7 +17,7 @@ const Frame = (props) => {
     if (isStrike(frame.roll1)) {
       roll2Value = "";
     } else if (isSpare(frame)) {
-      roll2Value = "/";
+      roll2Value = Constants.SPARE;
     } else {
       roll2Value = frame.roll2;
     }
