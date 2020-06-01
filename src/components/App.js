@@ -28,8 +28,20 @@ const App = () => {
       const roll1 = Math.round(Math.random() * 10);
       const roll2 = Math.round(Math.random() * (10 - roll1));
 
-      rollsScore.push(roll1);
-      rollsScore.push(roll2);
+      if (i === 9 && roll1 === 10) {
+        rollsScore.push(roll1);
+        const frame10roll = Math.round(Math.random() * 10);
+        rollsScore.push(frame10roll);
+
+        if (frame10roll === 10) {
+          rollsScore.push(Math.round(Math.random() * 10));
+        } else {
+          rollsScore.push(Math.round(Math.random() * (10 - frame10roll)));
+        }
+      } else {
+        rollsScore.push(roll1);
+        rollsScore.push(roll2);
+      }
     }
 
     setScoreBoard(rollsScore);

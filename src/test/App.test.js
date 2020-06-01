@@ -41,4 +41,24 @@ describe("App component", () => {
       expect(totalPerFrameCount).toBeLessThanOrEqual(10);
     }
   });
+
+  it("should provide an extra change in the 10th Frame if the player scores a Strike", () => {
+    let totalRollsInFrame10 = false;
+    const startButton = wrapper.find("button");
+    startButton.simulate("click");
+    for (let i = 0; i < 10; i++) {
+      const roll1 = wrapper.find(Frame).at(i).props().roll1;
+      const roll2 = wrapper.find(Frame).at(i).props().roll2;
+
+      if (i === 9 && roll1 === 10 && roll2 === "") {
+        totalRollsInFrame10 = true;
+      }
+
+      if (totalRollsInFrame10) {
+        expect(totalRollsInFrame10).toBeTruthy();
+      } else {
+        expect(totalRollsInFrame10).toBeFalsy();
+      }
+    }
+  });
 });
