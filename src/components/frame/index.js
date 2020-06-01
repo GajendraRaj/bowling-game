@@ -13,7 +13,13 @@ const Frame = (props) => {
       <p>{`frame ${props.index}`}</p>
       <div className="pins">
         <span>{isStrike(props.roll1) ? Constants.STRIKE : props.roll1}</span>
-        <span>{isStrike(props.roll1) ? "" : props.roll2}</span>
+        <span>
+          {isStrike(props.roll1)
+            ? ""
+            : props.roll1 + props.roll2 === 10
+            ? "/"
+            : props.roll2}
+        </span>
       </div>
     </div>
   );
