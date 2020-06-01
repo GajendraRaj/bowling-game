@@ -9,7 +9,7 @@ const Frame = (props) => {
       <p>{`frame ${props.index}`}</p>
       <div className="pins">
         <span>{props.roll1 === 10 ? Constants.STRIKE : props.roll1}</span>
-        <span>{props.roll2}</span>
+        <span>{props.roll1 === 10 ? "" : props.roll2}</span>
       </div>
     </div>
   );
