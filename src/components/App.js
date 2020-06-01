@@ -8,15 +8,30 @@ const App = () => {
 
   const getFrames = () => {
     let frames = [];
+    let frameIndex = 1;
+
     for (let i = 0; i < 20; i = i + 2) {
-      frames.push(
-        <Frame
-          key={i}
-          index={i + 1}
-          roll1={scoreBoard[i]}
-          roll2={scoreBoard[i + 1]}
-        />
-      );
+      if (frameIndex === 10) {
+        frames.push(
+          <Frame
+            key={i}
+            index={frameIndex}
+            roll1={scoreBoard[i]}
+            roll2={scoreBoard[i + 1]}
+            roll3={scoreBoard[i + 2]}
+          />
+        );
+      } else {
+        frames.push(
+          <Frame
+            key={i}
+            index={frameIndex}
+            roll1={scoreBoard[i]}
+            roll2={scoreBoard[i + 1]}
+          />
+        );
+      }
+      frameIndex++;
     }
 
     return frames;

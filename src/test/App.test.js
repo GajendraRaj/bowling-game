@@ -30,10 +30,10 @@ describe("App component", () => {
     }
   });
 
-  it("should not exceed a total of 10 per frame", () => {
+  it("should not exceed a total of 10 per frame except the 10th frame", () => {
     const startButton = wrapper.find("button");
     startButton.simulate("click");
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 9; i++) {
       const roll1 = wrapper.find(Frame).at(i).props().roll1;
       const roll2 = wrapper.find(Frame).at(i).props().roll2;
       const totalPerFrameCount = roll1 + roll2;

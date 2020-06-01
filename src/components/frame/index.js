@@ -31,6 +31,9 @@ const Frame = (props) => {
       <div className="pins">
         <span>{isStrike(props.roll1) ? Constants.STRIKE : props.roll1}</span>
         <span>{getRoll2Value(props)}</span>
+        {(isStrike(props.roll1) || isSpare(props)) && props.index === 10 && (
+          <span>{props.roll3}</span>
+        )}
       </div>
     </div>
   );
@@ -40,6 +43,7 @@ Frame.propTypes = {
   index: PropTypes.number.isRequired,
   roll1: PropTypes.number,
   roll2: PropTypes.number,
+  roll3: PropTypes.number,
 };
 
 export default Frame;

@@ -51,6 +51,10 @@
   border-right: 1px solid;
 }
 
+.frame:last-child .pins span {
+  width: 32%;
+}
+
 .frame .pins span:last-child {
   border-right: none;
 }
