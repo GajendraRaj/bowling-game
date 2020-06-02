@@ -8,7 +8,9 @@ const Score = (props) => {
       let total = 0;
       for (let roll = 0; roll < 20; roll = roll + 2) {
         total += scoreBoard[roll] + scoreBoard[roll + 1];
-        if (scoreBoard[roll] + scoreBoard[roll + 1] === 10) {
+        if (scoreBoard[roll] === 10) {
+          total += scoreBoard[roll + 2] + scoreBoard[roll + 3];
+        } else if (scoreBoard[roll] + scoreBoard[roll + 1] === 10) {
           total += scoreBoard[roll + 2];
         }
       }

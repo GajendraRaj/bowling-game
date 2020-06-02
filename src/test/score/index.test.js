@@ -76,4 +76,35 @@ describe("Score component", () => {
     let score = wrapper.find(".total span").at(1).text();
     expect(score).toBe("29");
   });
+
+  it("should calculate the total score as 30 when the first frame is a Strike and other rolls are 1", () => {
+    const wrapper = shallow(
+      <Score
+        scoreBoard={[
+          10,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+        ]}
+      />
+    );
+    let score = wrapper.find(".total span").at(1).text();
+    expect(score).toBe("30");
+  });
 });
