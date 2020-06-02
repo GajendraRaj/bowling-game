@@ -14,4 +14,35 @@ describe("Score component", () => {
 
     expect(score).toBe("0");
   });
+
+  it("should calculate the total score as 20 when all the rolls are 1", () => {
+    const wrapper = shallow(
+      <Score
+        scoreBoard={[
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+        ]}
+      />
+    );
+    let score = wrapper.find(".total span").at(1).text();
+    expect(score).toBe("20");
+  });
 });

@@ -6,7 +6,13 @@ const Score = (props) => {
   return (
     <div className="total">
       <span>{Constants.TOTAL}: </span>
-      <span>{props.scoreBoard.length > 0 ? props.scoreBoard : "0"}</span>
+      <span>
+        {props.scoreBoard.length > 0
+          ? props.scoreBoard.reduce((total, currentValue) => {
+              return total + currentValue;
+            })
+          : "0"}
+      </span>
     </div>
   );
 };
