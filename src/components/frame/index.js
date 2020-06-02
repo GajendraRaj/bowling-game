@@ -25,15 +25,21 @@ const Frame = (props) => {
     return roll2Value;
   };
 
+  const getRoll3Value = (frame) => {
+    let roll3Value;
+    if ((isStrike(frame.roll1) || isSpare(frame)) && frame.index === 10) {
+      roll3Value = <span>{frame.roll3}</span>;
+    }
+    return roll3Value;
+  };
+
   return (
     <div className="frame">
       <p>{`frame ${props.index}`}</p>
       <div className="pins">
         <span>{isStrike(props.roll1) ? Constants.STRIKE : props.roll1}</span>
         <span>{getRoll2Value(props)}</span>
-        {(isStrike(props.roll1) || isSpare(props)) && props.index === 10 && (
-          <span>{props.roll3}</span>
-        )}
+        {getRoll3Value(props)}
       </div>
     </div>
   );

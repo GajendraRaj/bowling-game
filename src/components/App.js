@@ -49,13 +49,13 @@ const App = () => {
 
       if (i === 9 && roll1 === 10) {
         rollsScore.push(roll1);
-        const frame10roll = generateRandomValue(10);
-        rollsScore.push(frame10roll);
+        const frame10roll2 = generateRandomValue(10);
+        rollsScore.push(frame10roll2);
 
-        if (frame10roll === 10) {
+        if (frame10roll2 === 10) {
           rollsScore.push(generateRandomValue(10));
         } else {
-          rollsScore.push(generateRandomValue(10 - frame10roll));
+          rollsScore.push(generateRandomValue(10 - frame10roll2));
         }
       } else if (i === 9 && roll1 + roll2 === 10) {
         rollsScore.push(roll1);
