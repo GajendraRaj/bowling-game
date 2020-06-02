@@ -21,16 +21,7 @@ const Score = (props) => {
         total += roll1 + roll2;
 
         if (isStrike(roll1)) {
-          if (frameIndex === 10) {
-            total += scoreBoard[roll + 2];
-          } else {
-            total += scoreBoard[roll + 2];
-            if (isStrike(scoreBoard[roll + 2])) {
-              total += scoreBoard[roll + 4];
-            } else {
-              total += scoreBoard[roll + 3];
-            }
-          }
+          total += calculateStrikeBonus(frameIndex, roll1, scoreBoard);
         } else if (isSpare(roll1, roll2)) {
           total += scoreBoard[roll + 2];
         }
@@ -40,6 +31,21 @@ const Score = (props) => {
     }
 
     return total;
+  };
+
+  const calculateStrikeBonus = (frame, roll, scoreBoard) => {
+    let strikeBonus = 0;
+    if (frame === 10) {
+      strikeBonus += scoreBoard[roll + 2];
+    } else {
+      strikeBonus += scoreBoard[roll + 2];
+      if (isStrike(scoreBoard[roll + 2])) {
+        strikeBonus += scoreBoard[roll + 4];
+      } else {
+        strikeBonus += scoreBoard[roll + 3];
+      }
+    }
+    return strikeBonus;
   };
 
   return (
