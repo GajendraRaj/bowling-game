@@ -5,9 +5,15 @@ import Constants from "../../constants";
 const Score = (props) => {
   const calculateScore = (scoreBoard) => {
     if (scoreBoard.length > 0) {
-      return scoreBoard.reduce((total, currentValue) => {
-        return total + currentValue;
-      });
+      let total = 0;
+      for (let roll = 0; roll < 20; roll = roll + 2) {
+        total += scoreBoard[roll] + scoreBoard[roll + 1];
+        if (scoreBoard[roll] + scoreBoard[roll + 1] === 10) {
+          total += scoreBoard[roll + 2];
+        }
+      }
+
+      return total;
     } else {
       return "0";
     }

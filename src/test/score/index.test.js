@@ -45,4 +45,35 @@ describe("Score component", () => {
     let score = wrapper.find(".total span").at(1).text();
     expect(score).toBe("20");
   });
+
+  it("should calculate the total score as 29 when the first two rolls are 5 and other rolls are 1", () => {
+    const wrapper = shallow(
+      <Score
+        scoreBoard={[
+          5,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+        ]}
+      />
+    );
+    let score = wrapper.find(".total span").at(1).text();
+    expect(score).toBe("29");
+  });
 });
