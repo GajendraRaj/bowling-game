@@ -139,4 +139,36 @@ describe("Score component", () => {
     let score = wrapper.find(".total span").at(1).text();
     expect(score).toBe("150");
   });
+
+  it("should calculate the total score as 300 for a perfect game", () => {
+    const wrapper = shallow(
+      <Score
+        scoreBoard={[
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          0,
+          10,
+          10,
+          10,
+        ]}
+      />
+    );
+    const score = wrapper.find(".total span").at(1).text();
+    expect(score).toBe("300");
+  });
 });

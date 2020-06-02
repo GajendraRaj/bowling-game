@@ -14,16 +14,28 @@ const Score = (props) => {
   const calculateScore = (scoreBoard) => {
     let total = 0;
     if (scoreBoard.length > 0) {
+      let frameIndex = 1;
       for (let roll = 0; roll < 20; roll = roll + 2) {
         const roll1 = scoreBoard[roll];
         const roll2 = scoreBoard[roll + 1];
         total += roll1 + roll2;
 
         if (isStrike(roll1)) {
-          total += scoreBoard[roll + 2] + scoreBoard[roll + 3];
+          if (frameIndex === 10) {
+            total += scoreBoard[roll + 2];
+          } else {
+            total += scoreBoard[roll + 2];
+            if (isStrike(scoreBoard[roll + 2])) {
+              total += scoreBoard[roll + 4];
+            } else {
+              total += scoreBoard[roll + 3];
+            }
+          }
         } else if (isSpare(roll1, roll2)) {
           total += scoreBoard[roll + 2];
         }
+
+        frameIndex++;
       }
     }
 
