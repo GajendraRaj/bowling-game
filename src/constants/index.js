@@ -3,6 +3,7 @@ const Constants = {
   START_BUTTON: "Start",
   STRIKE: "X",
   SPARE: "/",
+  TOTAL: "Total",
 };
 
 export default Constants;
