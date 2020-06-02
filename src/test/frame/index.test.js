@@ -62,6 +62,15 @@ describe("Frame component", () => {
     expect(roll2).toEqual("X");
   });
 
+  it("should display strike in roll3, if roll1, roll2 and roll3 values are 10", () => {
+    const wrapper = shallow(
+      <Frame index={10} roll1={10} roll2={10} roll3={10} />
+    );
+    const roll3 = wrapper.find(".frame span").at(2).text();
+
+    expect(roll3).toEqual("X");
+  });
+
   it("should throw error message if there are no index prop", () => {
     const errorMsg =
       "Failed prop type: The prop `index` is marked as required in `<<anonymous>>`, but its value is `undefined`.";

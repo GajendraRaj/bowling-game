@@ -38,8 +38,18 @@ const Frame = (props) => {
   const getRoll3Value = (frame) => {
     let roll3Value;
     if ((isStrike(frame.roll1) || isSpare(frame)) && frame.index === 10) {
-      roll3Value = <span>{frame.roll3}</span>;
+      let frameValue = frame.roll3;
+      if (
+        isStrike(frame.roll1) &&
+        isStrike(frame.roll2) &&
+        isStrike(frame.roll3)
+      ) {
+        frameValue = "X";
+      }
+
+      roll3Value = <span>{frameValue}</span>;
     }
+
     return roll3Value;
   };
 
