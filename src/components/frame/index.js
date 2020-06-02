@@ -14,12 +14,22 @@ const Frame = (props) => {
 
   const getRoll2Value = (frame) => {
     let roll2Value;
-    if (isStrike(frame.roll1)) {
-      roll2Value = "";
-    } else if (isSpare(frame)) {
-      roll2Value = Constants.SPARE;
+    if (frame.index !== 10) {
+      if (isStrike(frame.roll1)) {
+        roll2Value = "";
+      } else if (isSpare(frame)) {
+        roll2Value = Constants.SPARE;
+      } else {
+        roll2Value = frame.roll2;
+      }
     } else {
-      roll2Value = frame.roll2;
+      if (isStrike(frame.roll1) && isStrike(frame.roll2)) {
+        roll2Value = "X";
+      } else if (isSpare(frame) && !isStrike(frame.roll1)) {
+        roll2Value = Constants.SPARE;
+      } else {
+        roll2Value = frame.roll2;
+      }
     }
 
     return roll2Value;
