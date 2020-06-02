@@ -24,7 +24,7 @@ const Frame = (props) => {
       }
     } else {
       if (isStrike(frame.roll1) && isStrike(frame.roll2)) {
-        roll2Value = "X";
+        roll2Value = Constants.STRIKE;
       } else if (isSpare(frame) && !isStrike(frame.roll1)) {
         roll2Value = Constants.SPARE;
       } else {
@@ -44,13 +44,13 @@ const Frame = (props) => {
         isStrike(frame.roll2) &&
         isStrike(frame.roll3)
       ) {
-        frameValue = "X";
+        frameValue = Constants.STRIKE;
       } else if (
         isStrike(frame.roll1) &&
         !isStrike(frame.roll2) &&
         frame.roll2 + frame.roll3 === 10
       ) {
-        frameValue = "/";
+        frameValue = Constants.SPARE;
       }
 
       roll3Value = <span>{frameValue}</span>;
