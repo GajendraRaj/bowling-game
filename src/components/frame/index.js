@@ -45,6 +45,12 @@ const Frame = (props) => {
         isStrike(frame.roll3)
       ) {
         frameValue = "X";
+      } else if (
+        isStrike(frame.roll1) &&
+        !isStrike(frame.roll2) &&
+        frame.roll2 + frame.roll3 === 10
+      ) {
+        frameValue = "/";
       }
 
       roll3Value = <span>{frameValue}</span>;
