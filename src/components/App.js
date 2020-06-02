@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Frame from "./frame";
 import Constants from "../constants";
+import Score from "./score";
 import "./App.css";
 
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
       <header className="App-header">{Constants.APP_TITLE}</header>
       <button onClick={generateRollsScore}>{Constants.START_BUTTON}</button>
       <div className="scoreBoard">{getFrames()}</div>
+      <Score scoreBoard={scoreBoard} />
     </div>
   );
 };

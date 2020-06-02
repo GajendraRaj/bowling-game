@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import App from "../components/App";
 import Frame from "../components/frame";
+import Score from "../components/score";
 
 describe("App component", () => {
   let wrapper;
@@ -80,5 +81,16 @@ describe("App component", () => {
         expect(totalRollsInFrame10).toBeFalsy();
       }
     }
+  });
+});
+
+describe("Score component functionality", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it("should render the Score component", () => {
+    expect(wrapper.find(Score).length).toEqual(1);
   });
 });
